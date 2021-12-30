@@ -1,11 +1,16 @@
+//import * as dynamodb from "../../libs/dynamodb-lib";
 import dynamodb from "../../libs/dynamodb-lib";
 export const hello = (args, context) => {
   return "Your GraphQL API is now LIVE!🎈 ";
 };
 
 export const getAllListings = async (args, context) => {
+  //const params = {
+  //  TableName: process.env.ListingsDB || "dev-lunar-listings",
+  //};
+
   const params = {
-    TableName: process.env.ListingsDB || "dev-lunar-listings",
+    TableName: process.env.ListingsDB || "dev-listings",
   };
 
   //try {
@@ -52,8 +57,10 @@ export const getAllListings = async (args, context) => {
 };
 
 export const getAListing = async (args, context) => {
+  //const params = {
+  //  TableName: process.env.ListingsDB || "dev-lunar-listings",
   const params = {
-    TableName: process.env.ListingsDB || "dev-lunar-listings",
+    TableName: process.env.ListingsDB || "dev-listings", 
     FilterExpression: "listingId = :listingId",
     ExpressionAttributeValues: {
       ":listingId": args.listingId,
