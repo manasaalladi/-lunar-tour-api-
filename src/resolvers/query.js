@@ -8,10 +8,12 @@ export const getAllListings = async (args, context) => {
     TableName: process.env.ListingsDB || "dev-lunar-listings",
   };
 
-  
+  //try {
+  //  const result = await dynamodb.scan(params);
+
     try {
-      const result = await dynamoDBLib.call("scan", params)
-    
+  const result = await dynamoDBLib.call("scan", params)
+
     if (result.Items.length === 0) {
       return "You have no listings";
     } else {
