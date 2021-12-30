@@ -65,7 +65,7 @@ A hello world Query
 """
 type Query {
      hello: String!
-     getAllListings: [Listing]
+     getAllListings: Listing
      getAListing(listingId: String!): Listing!
 
 }
